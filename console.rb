@@ -1,6 +1,8 @@
 require('pry-byebug')
 require_relative('models/pizza_order.rb')
 require_relative('models/customer.rb')
+require_relative('db/sql_runner.rb')
+
 
 PizzaOrder.delete_all()
 Customer.delete_all()
