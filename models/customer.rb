@@ -58,7 +58,7 @@ end
 
 def self.delete_all()
   db = PG.connect( { dbname: 'pizza', host: 'localhost' } )
-  sql = "DELETE FROM customers"
+  sql = "DELETE * FROM customers"
   db.prepare("delete_all", sql)
   result = db.exec_prepared("delete_all")
   db.close()
@@ -74,7 +74,7 @@ def pizza_orders()
   db.prepare("order_list", sql)
   list = db.exec_prepared("order_list", values)
   db.close()
-  return list.map { |order| PizzaOrder.new(order)}[0]
+  return list.map { |order| PizzaOrder.new(order)}
 end
 
 end

@@ -59,7 +59,7 @@ end
 
 def self.delete_all()
   db = PG.connect({dbname: 'pizza', host: 'localhost'})
-  sql = "DELETE FROM pizza_orders"
+  sql = "DELETE * FROM pizza_orders"
   db.prepare("delete_all", sql)
   db.exec_prepared("delete_all")
   db.close()
